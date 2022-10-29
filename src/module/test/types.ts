@@ -1,4 +1,4 @@
-import { IJob } from "../../src/types";
+import { IJob } from "../../types";
 
 export type JobsDataType = {
   jobs: IJob[];

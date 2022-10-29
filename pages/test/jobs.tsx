@@ -1,8 +1,8 @@
 import { Button, ListCompanyCard, List } from "../../src/components";
-import { useTestState } from "./state";
-import { IJobs } from "./types";
+import { useTestState } from "../../src/module/test/state";
+import { IJobs } from "../../src/module/test/types";
 
-import * as S from "./styles";
+import * as S from "../../src/module/test/styles";
 
 export default function Jobs({ jobsData }: IJobs) {
   const {

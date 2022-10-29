@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { IJob } from "../../src/types";
+import { IJob } from "../../types";
 import { IUseTestState } from "./types";
 
 import moment from "moment";
@@ -11,9 +11,9 @@ export const useTestState = ({ jobsData }: IUseTestState) => {
   const [getByCompanyName, setGetByCompanyName] = useState(false);
   const [isLastSevenDays, setIsLastSevenDays] = useState(false);
 
-  const handleGetJobs = async () => {
+  const handleGetJobs = useCallback(() => {
     setJobs(jobsData?.jobs || []);
-  };
+  }, [jobsData]);
 
   const handleGetCompanies = useCallback(() => {
     const companies = jobs
@@ -75,7 +75,7 @@ export const useTestState = ({ jobsData }: IUseTestState) => {
 
   useEffect(() => {
     handleGetJobs();
-  }, [jobsData]);
+  }, [jobsData, handleGetJobs]);
 
   useEffect(() => {
     if (!getByCompanyName) handleClearSelectedCompanies();
