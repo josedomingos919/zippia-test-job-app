@@ -22,10 +22,12 @@ export class AxiosJobRepository implements IJobRepository {
       jobId: props.jobId,
       jobTitle: props.jobTitle,
       companyID: props.companyID,
+      postingDate: props.postingDate,
       companyName: props.companyName,
       companyLogo: props.companyLogo,
       companyInitial: props.companyInitial,
       jobDescription: props.jobDescription,
+      postedDate: props.postedDate,
     }));
 
     return response?.data;
