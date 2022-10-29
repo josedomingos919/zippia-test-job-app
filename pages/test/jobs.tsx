@@ -48,7 +48,7 @@ export async function getServerSideProps({ res }: IServerSideProps) {
     "public, s-maxage=10, stale-while-revalidate=59"
   );
 
-  const response = await fetch("http://localhost:3000/api/jobs");
+  const response = await fetch("/api/jobs");
   const jobsData = await response.json();
 
   return { props: { jobsData } };
