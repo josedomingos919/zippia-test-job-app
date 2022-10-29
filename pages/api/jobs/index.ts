@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { getAllJobsController } from "../../../api/modules/jobs/use-cases/jobs/get-all-jobs";
+import { getAllJobsController } from "../../../src/api/modules/jobs/use-cases/jobs/get-all-jobs";
 
 export default async function handler(
   req: NextApiRequest,
