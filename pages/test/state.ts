@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import { IJob } from "../../src/types";
 import { IUseTestState } from "./types";
 
+import moment from "moment";
+
 export const useTestState = ({ jobsData }: IUseTestState) => {
   const [jobs, setJobs] = useState<IJob[]>([]);
   const [companies, setCompanies] = useState<string[]>([]);
@@ -49,14 +51,23 @@ export const useTestState = ({ jobsData }: IUseTestState) => {
     return activeCompanies.includes(companyName);
   };
 
+  const getPassedDays = (postingDate = "") => {
+    const given = moment(postingDate, "YYYY-MM-DD");
+    const current = moment().startOf("day");
+
+    return moment.duration(current.diff(given)).asDays();
+  };
+
   const getFilteredJobs = () => {
-    return jobs.filter(({ companyName = "" }) => {
+    return jobs.filter(({ companyName = "", postingDate = "" }) => {
       if (
         getByCompanyName &&
         activeCompanies?.length &&
         !activeCompanies.includes(companyName)
       )
         return false;
+
+      if (isLastSevenDays && getPassedDays(postingDate) > 7) return false;
 
       return true;
     });

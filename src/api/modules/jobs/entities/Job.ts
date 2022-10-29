@@ -7,6 +7,8 @@ export class Job {
   public companyLogo?: string;
   public companyInitial?: string;
   public jobDescription?: string;
+  public postingDate?: string;
+  public postedDate?: string;
 
   constructor(props: Omit<Job, "jobId">) {
     Object.assign(this, props);

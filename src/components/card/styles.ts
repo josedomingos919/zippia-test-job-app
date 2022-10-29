@@ -54,3 +54,15 @@ export const Image = styled.img`
   width: 100%;
   height: 100%;
 `;
+
+export const Separator = styled.div`
+  margin-bottom: 10px;
+`;
+
+export const CardPostedDate = styled.span`
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: ${({ theme }: CThemeProps) => theme.colors.opacity1};
+  color: ${({ theme }: CThemeProps) => theme.colors.blackOpacity};
+`;
