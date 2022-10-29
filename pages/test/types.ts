@@ -1,3 +1,4 @@
+import { NextApiResponse } from "next";
 import { IJob } from "../../src/types";
 
 export type JobsDataType = {
@@ -10,4 +11,8 @@ export interface IUseTestState {
 
 export interface IJobs {
   jobsData: JobsDataType;
+}
+
+export interface IServerSideProps {
+  res: NextApiResponse;
 }

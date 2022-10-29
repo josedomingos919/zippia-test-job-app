@@ -1,6 +1,6 @@
 import { Button, ListCompanyCard, List } from "../../src/components";
 import { useTestState } from "./state";
-import { IJobs } from "./types";
+import { IJobs, IServerSideProps } from "./types";
 
 import * as S from "./styles";
 
@@ -42,7 +42,12 @@ export default function Jobs({ jobsData }: IJobs) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ res }: IServerSideProps) {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59"
+  );
+
   const response = await fetch("http://localhost:3000/api/jobs");
   const jobsData = await response.json();
 
