@@ -9,15 +9,6 @@ export const Container = styled.div`
   justify-content: center;
 `;
 
-export const List = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 500px;
-  width: 100%;
-
-  div:not(:last-child) {
-    margin-bottom: 25px;
-  }
+export const Title = styled.h1`
+  margin-bottom: 25px;
 `;
