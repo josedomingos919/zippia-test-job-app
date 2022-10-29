@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { IJob } from "../../src/types";
+import { IUseTestState } from "./types";
 
-export const useTestState = () => {
+export const useTestState = ({ jobsData }: IUseTestState) => {
   const [jobs, setJobs] = useState<IJob[]>([]);
   const [companies, setCompanies] = useState<string[]>([]);
   const [activeCompanies, setActiveCompanies] = useState<string[]>([]);
@@ -9,11 +10,7 @@ export const useTestState = () => {
   const [isLastSevenDays, setIsLastSevenDays] = useState(false);
 
   const handleGetJobs = async () => {
-    const response = await fetch("http://localhost:3000/api/jobs");
-
-    const data = await response.json();
-
-    setJobs(data?.jobs || []);
+    setJobs(jobsData?.jobs || []);
   };
 
   const handleGetCompanies = useCallback(() => {
@@ -67,7 +64,7 @@ export const useTestState = () => {
 
   useEffect(() => {
     handleGetJobs();
-  }, []);
+  }, [jobsData]);
 
   useEffect(() => {
     if (!getByCompanyName) handleClearSelectedCompanies();

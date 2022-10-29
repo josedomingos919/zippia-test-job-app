@@ -1,9 +1,10 @@
 import { Button, ListCompanyCard, List } from "../../src/components";
 import { useTestState } from "./state";
+import { IJobs } from "./types";
 
 import * as S from "./styles";
 
-export default function Jobs() {
+export default function Jobs({ jobsData }: IJobs) {
   const {
     jobs,
     companies,
@@ -13,7 +14,7 @@ export default function Jobs() {
     handleActiveCompany,
     handleGetJobsByCompanyName,
     handleGetJobsByLastSevenDays,
-  } = useTestState();
+  } = useTestState({ jobsData });
 
   return (
     <S.Container>
@@ -39,4 +40,11 @@ export default function Jobs() {
       <List jobs={jobs} />
     </S.Container>
   );
+}
+
+export async function getServerSideProps() {
+  const response = await fetch("http://localhost:3000/api/jobs");
+  const jobsData = await response.json();
+
+  return { props: { jobsData } };
 }
