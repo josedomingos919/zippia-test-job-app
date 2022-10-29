@@ -7,12 +7,20 @@ export const List = ({ jobs = [] }: IList) => {
   return (
     <S.List>
       {jobs?.map(
-        ({ jobId, jobTitle, companyLogo, companyName, jobDescription }) => (
+        ({
+          jobId,
+          jobTitle,
+          postedDate,
+          companyLogo,
+          companyName,
+          jobDescription,
+        }) => (
           <Card
             key={jobId}
             title={jobTitle}
             imgUrl={companyLogo}
             subTitle={companyName}
+            postedDate={postedDate}
             description={jobDescription}
           />
         )

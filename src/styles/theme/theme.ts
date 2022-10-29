@@ -7,6 +7,8 @@ export const theme = {
     dark2: "#333",
     dark3: "#bac4da",
     blue: "#3174ee",
+    opacity1: "#f0f2f480",
+    blackOpacity: "#333333cc",
   },
   size: {
     s18: 18,

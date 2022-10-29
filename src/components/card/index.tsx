@@ -3,7 +3,13 @@ import { getShortDescription } from "./util";
 
 import * as S from "./styles";
 
-export const Card = ({ description = "", imgUrl, subTitle, title }: ICard) => {
+export const Card = ({
+  description = "",
+  imgUrl,
+  subTitle,
+  title,
+  postedDate,
+}: ICard) => {
   return (
     <S.Card>
       <S.LogoContainer>
@@ -15,6 +21,9 @@ export const Card = ({ description = "", imgUrl, subTitle, title }: ICard) => {
         <S.Description
           dangerouslySetInnerHTML={{ __html: getShortDescription(description) }}
         />
+        <S.Separator>
+          <S.CardPostedDate>{postedDate}</S.CardPostedDate>
+        </S.Separator>
       </S.Content>
     </S.Card>
   );

@@ -7,4 +7,6 @@ export interface IJob {
   companyLogo?: string;
   companyInitial?: string;
   jobDescription?: string;
+  postingDate?: string;
+  postedDate?: string;
 }
