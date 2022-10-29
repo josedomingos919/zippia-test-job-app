@@ -48,7 +48,9 @@ export async function getServerSideProps({ res }: IServerSideProps) {
     "public, s-maxage=10, stale-while-revalidate=59"
   );
 
-  const response = await fetch("/api/jobs");
+  const response = await fetch(
+    "https://zippia-test-job-app.vercel.app/api/jobs"
+  );
   const jobsData = await response.json();
 
   return { props: { jobsData } };
