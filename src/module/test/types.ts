@@ -11,3 +11,7 @@ export interface IUseTestState {
 export interface IJobs {
   jobsData: JobsDataType;
 }
+
+export interface IServerSideProps {
+  res: NextApiResponse;
+}
