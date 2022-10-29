@@ -1,4 +1,4 @@
-import { IJobRepository } from "./../IJobRepository";
+import { IJobRepository } from "../IJobRepository";
 import { axios } from "../../../../client";
 import { Job } from "../../entities/Job";
 
