@@ -1,3 +1,4 @@
+import { NextApiResponse } from "next";
 import { IJob } from "../../types";
 
 export type JobsDataType = {

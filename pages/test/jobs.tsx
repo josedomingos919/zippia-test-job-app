@@ -1,6 +1,6 @@
 import { Button, ListCompanyCard, List } from "../../src/components";
 import { useTestState } from "../../src/module/test/state";
-import { IJobs } from "../../src/module/test/types";
+import { IJobs, IServerSideProps } from "../../src/module/test/types";
 
 import * as S from "../../src/module/test/styles";
 
